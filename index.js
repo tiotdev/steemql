@@ -1,26 +1,14 @@
 const { GraphQLServer } = require("graphql-yoga");
-const { Client } = require("dsteem");
 
-const client = new Client("https://api.steemit.com");
 
-const typeDefs = `
-  type Query {
-    account(username: String!): Account 
-  }
-  type Account {
-    name: String! 
-  }
-`;
+const schema = require("./src/schema.js");
+const resolvers = require("./src/resolvers.js");
 
-const resolvers = {
-  Query: {
-    account: async (root, args) => {
-      const res = await client.database.getAccounts([args.username]);
-      return res[0];
-    }
-  }
-};
 
+
+const typeDefs = schema;
+
+// Port from .env (e.g. Heroku) or fixed.
 const options = { port: process.env.PORT || 4000 };
 const server = new GraphQLServer({ typeDefs, resolvers });
 server.start(options, () =>

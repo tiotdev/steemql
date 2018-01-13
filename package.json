@@ -4,6 +4,6 @@
   },
   "dependencies": {
     "dsteem": "^0.8.6",
-    "graphql-yoga": "1.1.4"
+    "graphql-yoga": "^1.1.5"
   }
 }
