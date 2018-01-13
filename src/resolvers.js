@@ -5,12 +5,12 @@ const client = require("./client.js");
 const resolvers = {
   Query: {
     // Account
-    account: (root, args) => {
-      const res = client.database.getAccounts([args.username]);
+    account: async (root, args) => {
+      const res = await client.database.getAccounts([args.username]);
       return res[0];
     },
-    getAccounts: (root, args) => {
-      return client.database.getAccounts(args.usernames);
+    getAccounts: async (root, args) => {
+      return await client.database.getAccounts(args.usernames);
     },
     getDiscussions: async (root, args) => {
       const {
