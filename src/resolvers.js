@@ -1,31 +1,11 @@
 // Imports
-const client = require("./client.js");
+const mergeAll = require("ramda").mergeAll;
 
-// Resolvers
-const resolvers = {
-  Query: {
-    // Account
-    account: async (root, args) => {
-      const res = await client.database.getAccounts([args.username]);
-      return res[0];
-    },
-    getAccounts: async (root, args) => {
-      return await client.database.getAccounts(args.usernames);
-    },
-    getDiscussions: async (root, args) => {
-      const {
-        by = "created",
-        query: { tag = "", limit = 25, truncate = 0 } = {}
-      } = args;
-      const query = {
-        tag: tag,
-        limit: limit,
-        truncate_body: truncate
-      };
-      const discussions = await client.database.getDiscussions(by, query);
-      return discussions;
-    }
-  }
-};
+const accountResolvers = require("./account/account.resolvers.js");
+const postResolvers = require("./post/post.resolvers.js");
+
+// Merge resolvers before assigning to root Query because ramda's immutable
+// mergeAll only merges the last child of the same object (Query:{}).
+const resolvers = { Query: mergeAll([accountResolvers, postResolvers]) };
 
 module.exports = resolvers;
