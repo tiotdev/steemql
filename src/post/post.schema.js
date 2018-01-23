@@ -1,6 +1,7 @@
 const schema = `
 extend type Query {
    getDiscussions(by: String, query: DiscussionQuery): [Discussion] 
+   getContent(author: String!,permlink: String): Discussion
 }
 
 type Discussion {

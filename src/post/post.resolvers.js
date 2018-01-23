@@ -1,4 +1,5 @@
 const client = require("../client.js");
+const steem = require("steem");
 
 const resolvers = {
   getDiscussions: async (root, args) => {
@@ -13,6 +14,18 @@ const resolvers = {
     };
     const discussions = await client.database.getDiscussions(by, query);
     return discussions;
+  },
+
+  /**
+   * Get single post.
+   * @param root
+   * @param args
+   * @returns {Promise<*>}
+   */
+  getContent: async (root, args) => {
+    const { author, permlink } = args;
+    const content = await steem.api.getContentAsync(author, permlink);
+    return content;
   }
 };
 
