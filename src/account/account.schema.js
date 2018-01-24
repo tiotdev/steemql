@@ -1,7 +1,10 @@
 const schema = `
   extend type Query {
+    # Get a single account by 'username'.
     account(username: String!): Account 
+    # Get multiple accounts.
     getAccounts(usernames: [String]!): [Account]
+    # Get Follow Count (Follower and Following).
     getFollowCount(username: String!): FollowCount 
   }
   

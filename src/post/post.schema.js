@@ -1,7 +1,9 @@
 const schema = `
 extend type Query {
-   getDiscussions(by: String, query: DiscussionQuery): [Discussion] 
-   getContent(author: String!,permlink: String): Discussion
+  # Get a list of posts/comments.
+  getDiscussions(by: String, query: DiscussionQuery): [Discussion] 
+  # Get a single post or comment by author.
+  getContent(author: String!,permlink: String): Discussion
 }
 
 type Discussion {
