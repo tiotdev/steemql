@@ -1,6 +1,6 @@
 const client = require("../client");
 const PrivateKey = require("dsteem").PrivateKey;
-import { set } from "ramda";
+const set = require("ramda").set;
 
 const mutations = {
   /**
