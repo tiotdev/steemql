@@ -2,6 +2,7 @@ const schema = `
   extend type Query {
     account(username: String!): Account 
     getAccounts(usernames: [String]!): [Account]
+    getFollowCount(username: String!): FollowCount 
   }
   
   type Account {
@@ -65,6 +66,12 @@ const schema = `
     last_root_post: String
     vesting_balance: String
     reputation: String
-}`;
+  }
+  type FollowCount {
+    account: String!
+    follower_count: Int!
+    following_count: Int!
+  }
+`;
 
 module.exports = schema;

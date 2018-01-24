@@ -1,4 +1,5 @@
 const client = require("../client.js");
+const steem = require("steem");
 
 const resolvers = {
   // Account
@@ -8,6 +9,12 @@ const resolvers = {
   },
   getAccounts: async (root, args) => {
     return await client.database.getAccounts(args.usernames);
+  },
+  getFollowCount: async (root, args) => {
+    const { username } = args;
+    const followCount = await steem.api.getFollowCountAsync(username);
+    console.log(followCount);
+    return followCount;
   }
 };
 
