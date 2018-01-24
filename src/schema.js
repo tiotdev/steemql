@@ -4,11 +4,16 @@ const reduce = require("ramda").reduce;
 const accountSchema = require("./account/account.schema.js");
 const postSchema = require("./post/post.schema.js");
 const searchSchema = require("./search/search.schema");
+const transactionSchema = require("./transaction/transaction.schema");
 
 // Define
 const schema = `
   type Query {
     version: String 
+  }
+  
+  type Mutation {
+    log(text: String!): String
   }
 `;
 
@@ -18,5 +23,6 @@ module.exports = reduce(concat, "", [
   accountSchema,
   postSchema,
   searchSchema,
+  transactionSchema,
   schema
 ]);
