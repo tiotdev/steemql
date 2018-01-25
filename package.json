@@ -1,4 +1,7 @@
 {
+  "name": "steemQL",
+  "version": "0.5.1",
+  "author": "sarasate",
   "scripts": {
     "start": "node ."
   },
