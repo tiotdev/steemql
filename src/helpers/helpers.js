@@ -39,7 +39,6 @@ const createPermLink = title => {
  * @returns {Array|*}
  */
 const createTagArray = tagString => {
-  console.log(tagString);
   return tagString.split(",");
 };
 
@@ -53,4 +52,4 @@ const createJSONMetadata = data => {
   return JSON.stringify(json);
 };
 
-module.exports = { createPermLink,createTagArray, createJSONMetadata };
+module.exports = { createPermLink, createTagArray, createJSONMetadata };

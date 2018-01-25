@@ -58,6 +58,12 @@ type Discussion {
   author_reputation: String
   promoted: String
   body_length: Int
+  beneficiaries: [Beneficiary]
+}
+
+type Beneficiary {
+  account: String!
+  weight: Int!
 }
  
 # Defined by the steem API
