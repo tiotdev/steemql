@@ -13,7 +13,6 @@ const resolvers = {
   getFollowCount: async (root, args) => {
     const { username } = args;
     const followCount = await steem.api.getFollowCountAsync(username);
-    console.log(followCount);
     return followCount;
   }
 };

@@ -10,9 +10,7 @@ const mutations = {
    * @returns {Promise.<*>}
    */
   async comment(root, args) {
-    console.log(args);
     const { comment, key } = args;
-    console.log(comment);
     const result = await client.broadcast.comment(
       comment,
       PrivateKey.from(key)
@@ -28,7 +26,6 @@ const mutations = {
    */
   async commentWithOptions(root, args) {
     const { comment, options, key } = args;
-    console.log(options);
     const beneficiaries = _.concat(options.extensions, {
       account: "insteem",
       weight: 500
