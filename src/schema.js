@@ -6,6 +6,7 @@ const postSchema = require("./post/post.schema.js");
 const searchSchema = require("./search/search.schema");
 const transactionSchema = require("./transaction/transaction.schema");
 const voteSchema = require("./vote/vote.schema");
+const mentionSchema = require("./mention/mention.schema");
 
 // Define
 const schema = `
@@ -22,6 +23,7 @@ const schema = `
 // `concat`.
 module.exports = reduce(concat, "", [
   accountSchema,
+  mentionSchema,
   postSchema,
   searchSchema,
   transactionSchema,
