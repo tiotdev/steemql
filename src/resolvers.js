@@ -4,6 +4,7 @@ const mergeAll = require("ramda").mergeAll;
 // Queries
 // TODO: Rename `Resolvers` to `Queries`
 const accountResolvers = require("./account/account.resolvers.js");
+const followQueries = require("./follow/follow.queries.js");
 const postResolvers = require("./post/post.resolvers.js");
 const searchResolvers = require("./search/search.resolvers");
 const mentionQueries = require("./mention/mention.queries");
@@ -17,6 +18,7 @@ const voteMutations = require("./vote/vote.mutations");
 const resolvers = {
   Query: mergeAll([
     accountResolvers,
+    followQueries,
     mentionQueries,
     postResolvers,
     searchResolvers

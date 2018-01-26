@@ -2,6 +2,7 @@ const concat = require("ramda").concat;
 const reduce = require("ramda").reduce;
 
 const accountSchema = require("./account/account.schema.js");
+const followSchema = require("./follow/follow.schema");
 const postSchema = require("./post/post.schema.js");
 const searchSchema = require("./search/search.schema");
 const transactionSchema = require("./transaction/transaction.schema");
@@ -23,6 +24,7 @@ const schema = `
 // `concat`.
 module.exports = reduce(concat, "", [
   accountSchema,
+  followSchema,
   mentionSchema,
   postSchema,
   searchSchema,
