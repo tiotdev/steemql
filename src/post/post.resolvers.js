@@ -1,5 +1,6 @@
 const client = require("../client.js");
 const steem = require("steem");
+const moment = require("moment");
 
 const resolvers = {
   getDiscussions: async (root, args) => {
@@ -26,6 +27,30 @@ const resolvers = {
     const { author, permlink } = args;
     const content = await steem.api.getContentAsync(author, permlink);
     return content;
+  },
+  /**
+   * Get discussions (posts) for an author.
+   * @param root
+   * @param args
+   * @returns {Promise<*>}
+   */
+  getDiscussionsByAuthorBeforeDate: async (root, args) => {
+    const {
+      author,
+      startPermlink = "",
+      beforeDate = moment()
+        .utc()
+        .format("YYYY-MM-DD[T]HHmmss"),
+      limit = 25
+    } = args;
+    const result = await steem.api.getDiscussionsByAuthorBeforeDateAsync(
+      author,
+      startPermlink,
+      beforeDate,
+      limit
+    );
+    console.log(result);
+    return result;
   }
 };
 

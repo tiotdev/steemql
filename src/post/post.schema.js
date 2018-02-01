@@ -2,6 +2,8 @@ const schema = `
 extend type Query {
   # Get a list of posts/comments.
   getDiscussions(by: String, query: DiscussionQuery): [Discussion] 
+  # Get posts for author. Default limit: 25.
+  getDiscussionsByAuthorBeforeDate(author: String!, startPermlink: String, beforeDate: String, limit: Int): [Discussion]
   # Get a single post or comment by author.
   getContent(author: String!,permlink: String): Discussion
 }
