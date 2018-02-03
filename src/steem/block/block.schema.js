@@ -1,7 +1,9 @@
 const schema = `
   extend type Query {
     # Get block :: dsteem
-    _getBlock(blockNum: Int): _SignedBlock
+    _getBlock(blockNum: Int!): _SignedBlock
+    # Get block header
+    _getBlockHeader(blockNum: Int!): _BlockHeader
   } 
   
   type _SignedBlock {
@@ -15,6 +17,14 @@ const schema = `
     transations: [_Transaction]
     witness: String
     witness_signature: String 
+  }
+  
+  type _BlockHeader {
+    extensions: [String] 
+    previous: String
+    timestamp: String
+    transaction_merkle_root: String
+    witness: String
   }
 `;
 
