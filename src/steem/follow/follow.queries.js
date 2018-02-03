@@ -7,7 +7,7 @@ const resolvers = {
    * @param args
    * @returns {Promise<*>}
    */
-  async getFollowers(root, args) {
+  async _getFollowers(root, args) {
     const { username, startFollower, what = "blog", limit = 50 } = args;
     const followers = await steem.api.getFollowersAsync(
       username,

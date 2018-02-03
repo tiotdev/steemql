@@ -1,14 +1,17 @@
 const schema = `
   extend type Query {
-    # Get user 
-    user(username: String!): User
-  
-    # Get a single account by 'username'.
-    account(username: String!): _Account 
-    @deprecated(reason: "Renamed to User")
+    # Get multiple accounts.
+    _getAccounts(usernames: [String]!): [_Account]
+    # Get Follow Count (Follower and Following).
+    _getFollowCount(username: String!): _FollowCount 
+    
+    getFollowCount(username: String!): _FollowCount 
+    @deprecated(reason: "Moved to prefixed version")
+    getAccounts(usernames: [String]!): [_Account]
+    @deprecated(reason: "Moved to prefixed version")
   }
   
-  type User{
+  type _Account {
     id: ID!
     name: String!
     witness_votes: [String]
@@ -70,7 +73,7 @@ const schema = `
     vesting_balance: String
     reputation: String
   }
-  type FollowCount {
+  type _FollowCount {
     account: String!
     follower_count: Int!
     following_count: Int!

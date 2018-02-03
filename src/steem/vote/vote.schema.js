@@ -1,10 +1,10 @@
 const schema = `
   extend type Mutation {
     # Vote for a post/comment
-    vote(vote: VoteInput!, key: String!): TransactionConfirmation
+    _vote(vote: _VoteInput!, key: String!): _TransactionConfirmation
   }
   
-  input VoteInput {
+  input _VoteInput {
     author: String!
     permlink: String!
     voter: String!

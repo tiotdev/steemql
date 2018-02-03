@@ -1,5 +1,5 @@
 const schema = `
-  type Transaction {
+  type _Transaction {
     ref_block_num: Int
     ref_block_prefix: String 
     expiration: String 
@@ -8,14 +8,14 @@ const schema = `
     signatures: [String]
   }
 
-  type TransactionConfirmation {
+  type _TransactionConfirmation {
     block_num: Int
     expired: Boolean
     id: String
     trx_num: Int
   }
 
-  type SignedTransaction {
+  type _SignedTransaction {
     ref_block_num: String
     ref_block_prefix: String
     expiration: String

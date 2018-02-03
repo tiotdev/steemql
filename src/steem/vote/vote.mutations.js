@@ -1,4 +1,4 @@
-const client = require("../client");
+const client = require("../../client");
 const PrivateKey = require("dsteem").PrivateKey;
 
 const mutations = {
@@ -8,7 +8,7 @@ const mutations = {
    * @param args
    * @returns {Promise.<*|Promise|Promise<"dsteem/steem/transaction".TransactionConfirmation>>}
    */
-  async vote(root, args) {
+  async _vote(root, args) {
     const { vote, key } = args;
     const result = client.broadcast.vote(vote, PrivateKey.from(key));
     return result;
