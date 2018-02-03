@@ -1,5 +1,4 @@
 const client = require("../../client.js");
-const steem = require("steem");
 
 const queries = {
   /**
