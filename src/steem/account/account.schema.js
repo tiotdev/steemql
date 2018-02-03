@@ -4,6 +4,8 @@ const schema = `
     _getAccounts(usernames: [String]!): [_Account]
     # Get Follow Count (Follower and Following).
     _getFollowCount(username: String!): _FollowCount 
+    # Get number of all accounts :: steemjs
+    _getAccountCount: Int 
     
     getFollowCount(username: String!): _FollowCount 
     @deprecated(reason: "Moved to prefixed version")
@@ -73,6 +75,7 @@ const schema = `
     vesting_balance: String
     reputation: String
   }
+  
   type _FollowCount {
     account: String!
     follower_count: Int!

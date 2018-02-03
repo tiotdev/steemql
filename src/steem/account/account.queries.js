@@ -15,6 +15,16 @@ const queries = {
   _getAccounts: getAccounts,
   _getFollowCount: getFollowCount,
 
+  /**
+   * Get number of accounts
+   * @param root
+   * @param args
+   * @returns {Promise<*>}
+   */
+  _getAccountCount: async (root, args) => {
+    return steem.api.getAccountCountAsync();
+  },
+
   // Deprecated queries
   getAccounts: getAccounts,
   getFollowCount: getFollowCount
