@@ -6,13 +6,15 @@ const blockQueries = require("./block/block.queries");
 const discussionsQueries = require("./discussions/discussions.queries");
 const followQueries = require("./follow/follow.queries");
 const tagQueries = require("./tag/tag.queries");
+const voteQueries = require("./vote/vote.queries");
 
 const queries = mergeAll([
   accountQueries,
   blockQueries,
   discussionsQueries,
   followQueries,
-  tagQueries
+  tagQueries,
+  voteQueries
 ]);
 
 module.exports = queries;
