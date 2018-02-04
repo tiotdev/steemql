@@ -10,7 +10,8 @@ const schema = `
     _getDynamicGlobalProperties: _DynamicGlobalProperties
     # Return all applied operations in blockNum.
     _getOperations(blockNum: Int!, onlyVirtual:Boolean): [_AppliedOperation]
-
+    # Return all of the state required for a particular url path.
+    _getState(path: String!): String
   }
   
   type _AppliedOperation {

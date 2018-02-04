@@ -43,6 +43,18 @@ const queries = {
     const result = await client.database.getOperations(blockNum, onlyVirtual);
     console.log(result);
     return result;
+  },
+  /**
+   * Get state for a specific path.
+   * @param root
+   * @param args
+   * @returns {Promise<Promise<any> | *>}
+   */
+  _getState: async (root, args) => {
+    const { path } = args;
+    const result = await client.database.getState();
+    console.log(result);
+    return result;
   }
 };
 
