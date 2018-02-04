@@ -55,6 +55,21 @@ const queries = {
     const result = await client.database.getState();
     console.log(result);
     return result;
+  },
+  /**
+   * Get list of delegations made by account. Default limit: 50
+   * @param root
+   * @param args
+   * @returns {Promise<*>}
+   */
+  _getVestingDelegations: async (root, args) => {
+    const { account, from = "", limit = 50 } = args;
+    const result = await client.database.getVestingDelegations(
+      account,
+      from,
+      limit
+    );
+    return result;
   }
 };
 

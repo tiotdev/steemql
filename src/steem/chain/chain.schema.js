@@ -12,6 +12,8 @@ const schema = `
     _getOperations(blockNum: Int!, onlyVirtual:Boolean): [_AppliedOperation]
     # Return all of the state required for a particular url path.
     _getState(path: String!): String
+    # Get list of delegations made by account. Default limit: 50
+    _getVestingDelegations(account: String!, from: String, limit: Int): [_VestingDelegation]
   }
   
   type _AppliedOperation {
@@ -70,6 +72,14 @@ const schema = `
     max_virtual_bandwidth: String
     current_reserve_ratio: Int
     vote_power_reserve_rate: Int
+  }
+  
+  type _VestingDelegation {
+    delegatee: String!
+    delegator: String!
+    id: Int
+    min_delegation_time: String!
+    vesting_shares: String!
   }
   
   type _Config {
