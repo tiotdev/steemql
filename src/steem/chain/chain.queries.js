@@ -25,6 +25,14 @@ const queries = {
   _getCurrentMedianHistoryPrice: async () => {
     const result = await client.database.getCurrentMedianHistoryPrice();
     return result;
+  },
+  /**
+   * Return state of server.
+   * @returns {Promise<*>}
+   */
+  _getDynamicGlobalProperties: async () => {
+    const result = await client.database.getDynamicGlobalProperties();
+    return result;
   }
 };
 
