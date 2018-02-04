@@ -4,7 +4,6 @@ const queries = {
   _getTrendingTags: async (root, args) => {
     const { afterTag = "", limit = 25 } = args;
     const result = await steem.api.getTrendingTagsAsync(afterTag, limit);
-    console.log(result);
     return result;
   }
 };

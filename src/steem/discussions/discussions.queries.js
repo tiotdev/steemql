@@ -43,7 +43,6 @@ const getDiscussionsByAuthorBeforeDate = async (root, args) => {
     beforeDate,
     limit
   );
-  console.log(result);
   return result;
 };
 

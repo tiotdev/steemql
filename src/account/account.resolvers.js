@@ -6,7 +6,6 @@ const queries = {
   // User
   user: async (root, args) => {
     const result = await client.database.getAccounts([args.username]);
-    console.log(result);
     return head(result);
   },
   // Account
