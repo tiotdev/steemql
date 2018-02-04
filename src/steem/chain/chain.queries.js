@@ -9,6 +9,10 @@ const queries = {
   _getChainProperties: async () => {
     const result = await client.database.getChainProperties();
     return result;
+  },
+  _getConfig: async () => {
+    const result = await client.database.getConfig();
+    return result;
   }
 };
 
