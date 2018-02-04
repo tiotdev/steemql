@@ -8,6 +8,19 @@ const schema = `
     _getCurrentMedianHistoryPrice: _Price
     # Return state of server.
     _getDynamicGlobalProperties: _DynamicGlobalProperties
+    # Return all applied operations in blockNum.
+    _getOperations(blockNum: Int!, onlyVirtual:Boolean): [_AppliedOperation]
+
+  }
+  
+  type _AppliedOperation {
+    block: Int
+    op: [String] 
+    op_in_trx: Int
+    timestamp: String
+    trx_id: String 
+    trx_in_block: Int 
+    virtual_op: Int 
   }
   
   type _ChainProperties {

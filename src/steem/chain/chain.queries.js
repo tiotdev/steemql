@@ -33,6 +33,16 @@ const queries = {
   _getDynamicGlobalProperties: async () => {
     const result = await client.database.getDynamicGlobalProperties();
     return result;
+  },
+  /**
+   * Return all applied operations in blockNum.
+   * @returns {Promise<*>}
+   */
+  _getOperations: async (root, args) => {
+    const { blockNum, onlyVirtual = false } = args;
+    const result = await client.database.getOperations(blockNum, onlyVirtual);
+    console.log(result);
+    return result;
   }
 };
 
