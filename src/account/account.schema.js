@@ -18,12 +18,8 @@ const schema = `
     last_owner_update: String
     last_account_update: String
     created: String
-    mined: Boolean
-    owner_challenged: Boolean
-    active_challenged: Boolean
     last_owner_proved: String
     last_active_proved: String
-    recovery_account: String
     last_account_recovery: String
     reset_account: String
     comment_count: Int
