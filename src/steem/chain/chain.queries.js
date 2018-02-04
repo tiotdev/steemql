@@ -70,6 +70,9 @@ const queries = {
       limit
     );
     return result;
+  },
+  _getHardforkVersion: async () => {
+    return steem.api.getHardforkVersionAsync();
   }
 };
 

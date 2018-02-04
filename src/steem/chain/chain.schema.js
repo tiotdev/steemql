@@ -14,6 +14,8 @@ const schema = `
     _getState(path: String!): String
     # Get list of delegations made by account. Default limit: 50
     _getVestingDelegations(account: String!, from: String, limit: Int): [_VestingDelegation]
+    # Get version of actual hardfork
+    _getHardforkVersion: String!
   }
   
   type _AppliedOperation {
