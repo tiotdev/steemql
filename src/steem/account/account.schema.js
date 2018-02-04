@@ -13,6 +13,12 @@ const schema = `
     @deprecated(reason: "Moved to prefixed version")
   }
   
+  extend type Mutation {
+    # Update account.
+    _updateAccount(account: String!, active: Boolean, json_metadata: String!,
+      memo_key: String!, key: String!): _TransactionConfirmation
+  }
+  
   type _Account {
     id: ID!
     name: String!
