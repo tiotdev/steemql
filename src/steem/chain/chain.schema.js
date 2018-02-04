@@ -4,12 +4,24 @@ const schema = `
     _getChainProperties: _ChainProperties 
     # Return server config. 
     _getConfig: _Config 
+    # Return median price in SBD for 1 STEEM as reported by the witnesses.
+    _getCurrentMedianHistoryPrice: _Price
   }
   
   type _ChainProperties {
     account_creation_fee: String
     maximum_block_size: Int
     sbd_interest_rate: Int
+  }
+  
+  type _Price {
+    base: _Asset
+    quote: _Asset
+  }
+  
+  type _Asset {
+    amount: String
+    symbol: String
   }
   
   type _Config {
