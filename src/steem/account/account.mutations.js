@@ -12,12 +12,10 @@ const mutations = {
       memo_key: memo_key
     };
 
-    console.log(data);
     const result = await client.broadcast.updateAccount(
       data,
       PrivateKey.from(key)
     );
-    console.log(result);
     return result;
   }
 };

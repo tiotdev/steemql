@@ -41,7 +41,6 @@ const queries = {
   _getOperations: async (root, args) => {
     const { blockNum, onlyVirtual = false } = args;
     const result = await client.database.getOperations(blockNum, onlyVirtual);
-    console.log(result);
     return result;
   },
   /**
@@ -53,7 +52,6 @@ const queries = {
   _getState: async (root, args) => {
     const { path } = args;
     const result = await client.database.getState();
-    console.log(result);
     return result;
   },
   /**
