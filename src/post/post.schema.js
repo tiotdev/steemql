@@ -5,6 +5,12 @@ extend type Mutation {
   # createComment(comment: 
   createComment(comment: CommentInput!, options: PostOptions, key: String): _Discussion
 }
+
+type Post {
+  id: ID!
+  title: String!
+  body: String!
+}
   
 # Custom Post input
 input PostInput {

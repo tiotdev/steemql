@@ -1,8 +1,8 @@
 const concat = require("ramda").concat;
 const reduce = require("ramda").reduce;
 
-const accountSchema = require("./account/account.schema.js");
-const postSchema = require("./post/post.schema.js");
+const userSchema = require("./user/user.schema");
+const postSchema = require("./post/post.schema");
 const searchSchema = require("./search/search.schema");
 const mentionSchema = require("./mention/mention.schema");
 
@@ -22,10 +22,12 @@ const schema = `
 // Concat all schemas and export. Use `reduce` to allow multiple params on
 // `concat`.
 module.exports = reduce(concat, "", [
-  accountSchema,
   mentionSchema,
   postSchema,
   searchSchema,
+  userSchema,
+  // Default global schema
   schema,
+  // Standard steem api schema
   steemSchema
 ]);
