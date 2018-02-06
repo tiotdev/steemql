@@ -8,6 +8,19 @@ const queries = {
     const result = await client.database.getAccounts([args.username]);
     return head(result);
   },
+
+  /**
+   * Get multiple users by `username` strings
+   * @param root
+   * @param args
+   * @returns {Promise<void>}
+   */
+  users: async (root, args) => {
+    const { usernames } = args;
+    const result = await client.database.getAccounts(usernames);
+    return result;
+  },
+
   // Account
   account: async (root, args) => {
     const res = await client.database.getAccounts([args.username]);

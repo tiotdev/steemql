@@ -26,6 +26,8 @@ const mutations = {
       parent_permlink: post.tags[0]
     };
 
+    console.log(newPost);
+
     // Adding beneficiaries by default, 5% to steemql.
     const beneficiaries = concat(propOr([], "extensions")(options), [
       {

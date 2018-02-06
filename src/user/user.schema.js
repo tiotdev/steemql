@@ -2,6 +2,8 @@ const schema = `
   extend type Query {
     # Get user 
     user(username: String!): User
+    # Get multiple users
+    users(usernames: [String!]!): [User]
   
     # Get a single account by 'username'.
     account(username: String!): _Account 
