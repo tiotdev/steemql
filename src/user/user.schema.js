@@ -13,10 +13,20 @@ const schema = `
   type User {
     id: ID!
     name: String!
+    balance: String
     created: String!
-    reputation: String
-    post_count: Int
+    json_metadata: String
+    last_post: String
+    last_root_post: String
     memo_key: String
+    post_count: Int
+    reputation: String
+    savings_balance: String
+    sbd_balance: String
+    vesting_balance: String
+    vesting_shares: String
+    voting_power: Int
+    profile: Profile
     posts(by: String, query: PostQuery): [Post]
   }
   

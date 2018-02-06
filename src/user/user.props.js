@@ -1,4 +1,6 @@
 const client = require("../client");
+const { parseMetadata } = require("../helpers/helpers");
+const { propOr } = require("ramda");
 
 const User = {
   // TODO: Move function into reusable module.
@@ -21,6 +23,13 @@ const User = {
     };
     const result = await client.database.getDiscussions(by, query);
     return result;
+  },
+  profile: async root => {
+    const { json_metadata } = root;
+
+    const metadata = parseMetadata(json_metadata);
+
+    return propOr(null, "profile", metadata);
   }
 };
 

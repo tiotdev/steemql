@@ -52,4 +52,21 @@ const createJSONMetadata = data => {
   return JSON.stringify(json);
 };
 
-module.exports = { createPermLink, createTagArray, createJSONMetadata };
+/**
+ *  Parse the `json_metadata` property from steem.
+ * @param json - string to parse into JSON format.
+ */
+const parseMetadata = json => {
+  // Check if JSON string is not empty otherwise `parse` will fail.
+  if (json.length > 0) {
+    return JSON.parse(json);
+  }
+  return "";
+};
+
+module.exports = {
+  createPermLink,
+  createTagArray,
+  createJSONMetadata,
+  parseMetadata
+};
