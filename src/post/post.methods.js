@@ -21,14 +21,11 @@ const posts = async (root, args) => {
     truncate_body: truncate_body
   };
 
-  console.log(query);
-
   // Remove unused props.
   isEmpty(start_author) ? delete query.start_author : null;
   isEmpty(start_permlink) ? delete query.start_permlink : null;
 
   const result = await client.database.getDiscussions(by, query);
-  console.log(result);
   return result;
 };
 
