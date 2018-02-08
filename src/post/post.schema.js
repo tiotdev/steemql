@@ -1,4 +1,11 @@
 const schema = `
+extend type Query {
+  # Get multiple posts.
+  posts(by: String, query: PostQuery): [Post]
+  # Get single post
+  post(username: String!, permlink: String!): Post
+}
+
 extend type Mutation {
   # Convenience method to create a post with minimal effort.
   createPost(post: PostInput!, options: PostOptions, key: String!): _Discussion 
@@ -8,8 +15,24 @@ extend type Mutation {
 
 type Post {
   id: ID!
-  title: String!
+  active_votes: [_Vote]
+  author: String!
   body: String!
+  body_length: Int
+  cashout_time: String
+  category: String!
+  created: String!
+  json_metadata: String
+  last_update: String
+  net_votes: Int 
+  percent_steem_dollars: Int
+  permlink: String!
+  reblogged_by: [String]
+  reward_weight: Int
+  title: String!
+  total_vote_weight: Int
+  # Returns the whole user object
+  user: User
 }
   
 # Custom Post input
@@ -44,6 +67,15 @@ input CommentInput {
   permlink: String
   json_metadata: String
 }
+
+# Query to filter posts.
+input PostQuery {
+  start_author: String
+  start_permlink: String
+  tag: String,
+  limit: Int,
+  truncate_body: Int
+ }
  `;
 
 module.exports = schema;

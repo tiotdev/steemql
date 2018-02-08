@@ -44,14 +44,6 @@ const schema = `
     follower_count: Int!
     following_count: Int!
   }
-  
-  input PostQuery {
-    tag: String
-    limit: Int
-    start_author: String
-    start_permlink: String
-    truncate_body: Int
-  }
 `;
 
 module.exports = schema;
