@@ -1,10 +1,11 @@
 const concat = require("ramda").concat;
 const reduce = require("ramda").reduce;
 
-const userSchema = require("./user/user.schema");
+const mentionSchema = require("./mention/mention.schema");
 const postSchema = require("./post/post.schema");
 const searchSchema = require("./search/search.schema");
-const mentionSchema = require("./mention/mention.schema");
+const userSchema = require("./user/user.schema");
+const voteSchema = require("./vote/vote.schema");
 
 const steemSchema = require("./steem/schema");
 
@@ -26,6 +27,7 @@ module.exports = reduce(concat, "", [
   postSchema,
   searchSchema,
   userSchema,
+  voteSchema,
   // Default global schema
   schema,
   // Standard steem api schema
