@@ -33,6 +33,7 @@ type Post {
   total_vote_weight: Int
   # Returns the whole user object
   user: User
+  votes: [Vote]
 }
   
 # Custom Post input
