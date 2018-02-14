@@ -65,9 +65,18 @@ const Post = {
    */
   app: async root => {
     const { json_metadata } = root;
-    console.log(json_metadata);
     const app = propOr(null, "app", parseMetadata(json_metadata));
     return app;
+  },
+  /**
+   * Returns the app where the post has been created.
+   * @param root
+   * @returns {Promise<void>}
+   */
+  community: async root => {
+    const { json_metadata } = root;
+    console.log(json_metadata);
+    return propOr(null, "app", parseMetadata(json_metadata));
   }
 };
 

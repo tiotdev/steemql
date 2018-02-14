@@ -43,6 +43,8 @@ type Post {
   format: String
   # Get the app where the post has been created (json_metadata)
   app: String
+  # Get community where the post has been created (json_metadata)
+  community: String
   
 }
   
