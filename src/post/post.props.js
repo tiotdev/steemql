@@ -77,6 +77,7 @@ const Post = {
     const { json_metadata } = root;
     console.log(json_metadata);
     return propOr(null, "app", parseMetadata(json_metadata));
+    return propOr(null, "community", parseMetadata(json_metadata));
   }
 };
 
