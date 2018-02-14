@@ -1,7 +1,14 @@
 {
   "name": "steemQL",
+  "description": "GraphQL server for the steem blockchain.",
   "version": "0.6.1",
   "author": "sarasate",
+  "license": "MIT",
+  "keywords": ["graphQL", "steem", "steemql", "blockchain", "smt"],
+  "homepage": "https://www.insteem.com",
+  "bugs": {
+    "url": "https://github.com/insteem/steemql/issues"
+  },
   "scripts": {
     "start": "node ."
   },
