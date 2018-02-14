@@ -39,6 +39,8 @@ type Post {
   tags: [String]
   # Get images (from json_metadata)
   images: [String]
+  # Get links (json_metadata)
+  links: [String]
   # Get format (from json_metadata)
   format: String
   # Get the app where the post has been created (json_metadata)

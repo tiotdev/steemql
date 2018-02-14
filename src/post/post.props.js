@@ -49,6 +49,15 @@ const Post = {
     return images;
   },
   /**
+   * Returns the links of the post.
+   * @param root
+   * @returns {Promise<void>}
+   */
+  links: async root => {
+    const { json_metadata } = root;
+    return propOr(null, "links", parseMetadata(json_metadata));
+  },
+  /**
    * Get format of the post (markdown, html).
    * @param root
    * @returns {Promise<void>}
@@ -69,14 +78,12 @@ const Post = {
     return app;
   },
   /**
-   * Returns the app where the post has been created.
+   * Returns the `community` where the post has been created.
    * @param root
    * @returns {Promise<void>}
    */
   community: async root => {
     const { json_metadata } = root;
-    console.log(json_metadata);
-    return propOr(null, "app", parseMetadata(json_metadata));
     return propOr(null, "community", parseMetadata(json_metadata));
   }
 };
