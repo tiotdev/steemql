@@ -33,7 +33,17 @@ type Post {
   total_vote_weight: Int
   # Returns the whole user object
   user: User
+  # Get active votes for the post
   votes: [Vote]
+  # Get tags (from json_metadata) 
+  tags: [String]
+  # Get images (from json_metadata)
+  images: [String]
+  # Get format (from json_metadata)
+  format: String
+  # Get the app where the post has been created (json_metadata)
+  app: String
+  
 }
   
 # Custom Post input
