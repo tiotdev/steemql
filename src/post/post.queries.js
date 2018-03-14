@@ -8,7 +8,12 @@ const queries = {
     const result = await posts(root, {
       ...args,
       by: "blog",
-      query: { tag: args.username, limit: 1 }
+      query: {
+        tag: args.username,
+        limit: 1,
+        start_author: args.username,
+        start_permlink: args.permlink
+      }
     });
     return result[0];
   }
